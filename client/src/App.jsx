@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PublicRoute from "./components/PublicRoute";
 import HomePage from "./pages/HomePage";
-
+import UploadQP from "./pages/UploadPaper";
 const App = () => {
   return (
     <BrowserRouter>
@@ -11,6 +11,16 @@ const App = () => {
           element={
             <PublicRoute>
               <HomePage />
+            </PublicRoute>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/uploadQP"
+          element={
+            <PublicRoute>
+              <UploadQP />
             </PublicRoute>
           }
         />
