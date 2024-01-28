@@ -3,7 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "About", href: "#" },
+  { name: "About", href: "#about" },
   { name: "Features", href: "#" },
   { name: "More", href: "#" },
   { name: "Contact", href: "#" },
@@ -124,7 +124,7 @@ export default function Example() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-15 sm:py-18 lg:py-20">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Empower the Community. Contribute to Knowledge with Pride.{" "}
