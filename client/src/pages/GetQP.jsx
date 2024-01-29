@@ -10,7 +10,9 @@ const GetQP = () => {
   const [questions, setQuestions] = useState([]);
   const [filterCollege, setFilterCollege] = useState("");
   const [filterBranch, setFilterBranch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [filterSemester, setFilterSemester] = useState("");
+  const [questionsPerPage] = useState(10);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,12 +39,20 @@ const GetQP = () => {
       semester.includes(filterSemester.toLowerCase())
     );
   });
+  // Pagination
+  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestions = filteredQuestions.slice(
+    indexOfFirstQuestion,
+    indexOfLastQuestion
+  );
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
       <div className="m-2 md:m-0 mt-0 p-2 md:p-7 bg-white rounded-3xl">
         <h2 className="text-center text-xl font-bold tracking-tight text-slate-900">
-          Questions
+          Questions Available
         </h2>
         <div className="container mt-5">
           <div className="flex flex-col space-y-0 mb-3 md:flex-row md:space-x-3 md:space-y-0 bg-gray-800 p-4 rounded-md">
@@ -55,7 +65,7 @@ const GetQP = () => {
               >
                 <option value="">Select College</option>
                 {colleges.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option key={index} value={item.name}>
                     {item.title}
                   </option>
                 ))}
@@ -70,7 +80,7 @@ const GetQP = () => {
               >
                 <option value="">Select Branch</option>
                 {branches.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option key={index} value={item.name}>
                     {item.name}
                   </option>
                 ))}
@@ -124,6 +134,25 @@ const GetQP = () => {
             </table>
           </div>
         </div>
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-center mt-4">
+        {Array.from(
+          { length: Math.ceil(filteredQuestions.length / questionsPerPage) },
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`mx-2 px-3 py-1 rounded-md ${
+                currentPage === index + 1
+                  ? "bg-gray-800 text-white"
+                  : "bg-white text-gray-800"
+              }`}
+            >
+              {index + 1}
+            </button>
+          )
+        )}
       </div>
     </>
   );

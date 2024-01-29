@@ -86,7 +86,7 @@ export default function Example() {
                   >
                     <option value="">Select College</option>
                     {colleges.map((item, index) => (
-                      <option key={index} value={item.id}>
+                      <option key={index} value={item.title}>
                         {item.title}
                       </option>
                     ))}

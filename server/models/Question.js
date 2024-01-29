@@ -24,7 +24,7 @@ const PaperSchema = new Schema({
     required: true,
   },
 
-  photo: {
+  question: {
     type: String,
   },
 });

@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import UploadQP from "./pages/UploadPaper";
 import GetQP from "./pages/GetQP";
 import Login from "./pages/Loigin";
+import ViewPaper from "./pages/Viewpaper";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,6 +15,14 @@ const App = () => {
           element={
             <PublicRoute>
               <HomePage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/viewQuestion"
+          element={
+            <PublicRoute>
+              <ViewPaper />
             </PublicRoute>
           }
         />

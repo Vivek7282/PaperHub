@@ -81,4 +81,24 @@ router.get("/questionList", async (req, res) => {
   }
 });
 
+router.get("/getQuestionById", async (req, res) => {
+  // Extract the user ID from the request query parameters
+  const questionId = req.query.questionId;
+
+  try {
+    // Query the database to retrieve the user based on the ID
+    const question = await Question.findById(questionId);
+    // console.log(student);
+    // Check if the user exists
+    if (!question) {
+      return res.status(404).json({ error: "Question not found" });
+    }
+
+    res.json(question);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports = router;
