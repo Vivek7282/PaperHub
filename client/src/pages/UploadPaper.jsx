@@ -192,7 +192,7 @@ export default function Example() {
                   >
                     <option value="">Select Branch</option>
                     {branches.map((item, index) => (
-                      <option key={index} value={item.id}>
+                      <option key={index} value={item.name}>
                         {item.name}
                       </option>
                     ))}
