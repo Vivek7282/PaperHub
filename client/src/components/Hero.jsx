@@ -21,7 +21,7 @@ export default function Example() {
         >
           <div className="flex lg:flex-1 items-center">
             <a href="#" className="-m-1.5 p-1.5 flex items-center">
-              <span className="sr-only">PapersHub</span>
+              <span className="sr-only">PaperHub</span>
               <span className="text-blue-900 text-3xl font-bold tracking-tight">
                 📚 PaperHub
               </span>
@@ -51,7 +51,7 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
-              href="#"
+              href="/login"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Log in <span aria-hidden="true">&rarr;</span>
@@ -139,14 +139,14 @@ export default function Example() {
               PapersHub - Elevating Learning with Shared Papers.
             </h1>
             <p className="mt-6 text-lg leading-8 text-blue-900 font-semibold">
-              PapersHub: 📘 Your Academic Catalyst – a Student-Crafted Platform
+              PaperHub: 📘 Your Academic Catalyst – a Student-Crafted Platform
               for Seamless Sharing and Access to University Exam Papers,
               Igniting Knowledge Exchange.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="#"
+                href="/getQP"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Find Your Paper

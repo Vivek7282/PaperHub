@@ -71,7 +71,10 @@ export const colleges = [
     id: "IIT-DHN",
     title: "IIT Dhanbad",
   },
-
+  {
+    id: "MNNIT",
+    title: "NIT Allahabad",
+  },
   {
     id: "NIT-A",
     title: "NIT Agartala",

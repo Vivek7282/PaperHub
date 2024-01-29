@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white p-4 text-center">
       <p className="text-sm">
-        Developed by Students &copy; {new Date().getFullYear()}. All Rights
+        Developed by PaperHub Team &copy; {new Date().getFullYear()}. All Rights
         Reserved.
       </p>
     </footer>

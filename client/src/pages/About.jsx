@@ -10,11 +10,11 @@ const AboutPage = () => {
               About PaperHub
             </h1>
             <p className="leading-relaxed p-4 md:p-8 lg:p-12 font-base md:font-medium text-center hover:text-stone-100 sm:text-xl text-base">
-              At PapersHub, we believe in the power of collective learning. By
+              At PaperHub, we believe in the power of collective learning. By
               sharing exam papers, students can elevate their academic journeys,
               gain valuable insights, and empower each other to achieve academic
               excellence. Whether you're preparing for exams or looking to
-              contribute to the academic community, PapersHub is here to support
+              contribute to the academic community, PaperHub is here to support
               you.
             </p>
             <p className="leading-relaxed p-4 md:p-8 lg:p-12 font-base md:font-medium text-center hover:text-stone-100 sm:text-xl text-base">

@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use("/images", express.static("images"));
-
+app.use("/api/v1/user", require("./routers/AddQuestion"));
 app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);
 });
