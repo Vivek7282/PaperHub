@@ -12,7 +12,7 @@ export default function Example() {
     type: "",
     subject: "",
     branch: "",
-    question: "",
+    questions: [],
   });
 
   const handleSubmit = (e) => {
@@ -23,7 +23,9 @@ export default function Example() {
     formData.append("type", credentials.type);
     formData.append("subject", credentials.subject);
     formData.append("branch", credentials.branch);
-    formData.append("question", credentials.question);
+    for (let i = 0; i < credentials.questions.length; i++) {
+      formData.append("questions", credentials.questions[i]);
+    }
 
     axios
       .post(`${BASE_URL}/addPaper`, formData)
@@ -43,7 +45,9 @@ export default function Example() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const onPhotoChange = (e) => {
-    setCredentials({ ...credentials, question: e.target.files[0] });
+    // Use Array.from to convert the FileList to an array
+    const files = Array.from(e.target.files);
+    setCredentials({ ...credentials, questions: files });
   };
 
   return (
@@ -217,7 +221,7 @@ export default function Example() {
                   htmlFor="cover-photo"
                   className="block text-sm font-medium leading-6 text-white"
                 >
-                  Upload Question
+                  Upload Questions
                 </label>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-white px-6 py-10">
                   <div className="text-center">
@@ -227,16 +231,17 @@ export default function Example() {
                     />
                     <div className="mt-4 flex text-sm leading-6 text-white">
                       <label
-                        htmlFor="question"
+                        htmlFor="questions"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-slate-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
-                        <span>Upload a file</span>
+                        <span>Upload files</span>
                         <input
                           type="file"
-                          name="question"
-                          accept=".png, .jpg, .jpeg, capture=camera"
+                          name="questions"
+                          accept=".png, .jpg, .jpeg, .pdf, .doc, .docx"
                           onChange={onPhotoChange}
                           className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out"
+                          multiple // Add the 'multiple' attribute
                         />
                       </label>
                     </div>

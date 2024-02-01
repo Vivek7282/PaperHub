@@ -176,7 +176,7 @@ const GetQP = () => {
                       </Link>
                       <button
                         onClick={() => handleSave(question._id)}
-                        className="bg-transparent hover:bg-green-500 text-green-700 font-normal hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                        className="bg-transparent hover:bg-green-500 text-green-700 font-normal hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded"
                       >
                         Save
                       </button>
@@ -188,7 +188,7 @@ const GetQP = () => {
                       </button>
                       <button
                         onClick={() => handleDelete(question._id)}
-                        className="bg-transparent hover:bg-red-500 text-red-700 font-normal hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                        className="bg-transparent hover:bg-red-500 text-red-700 font-normal hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
                       >
                         Delete
                       </button>

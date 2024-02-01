@@ -37,17 +37,18 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploaded photos
 app.use("/uploads", express.static("uploads"));
 
-router.route("/addPaper").post(upload.single("question"), async (req, res) => {
+router.route("/addPaper").post(upload.array("questions"), async (req, res) => {
   const college = req.body.college;
   const semester = req.body.semester;
   const type = req.body.type;
   const branch = req.body.branch;
   const subject = req.body.subject;
-  if (!req.file) {
-    return res.status(400).json({ error: "No file uploaded" });
+
+  if (!req.files || req.files.length === 0) {
+    return res.status(400).json({ error: "No files uploaded" });
   }
 
-  const question = req.file.filename;
+  const questions = req.files.map((file) => file.filename);
 
   console.log(college);
 
@@ -58,7 +59,7 @@ router.route("/addPaper").post(upload.single("question"), async (req, res) => {
       semester,
       type,
       subject,
-      question,
+      questions,
     };
 
     const newQuestion = new Question(newQuestionData);

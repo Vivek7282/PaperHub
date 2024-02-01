@@ -23,22 +23,20 @@ const Paper = () => {
     }
   }, [questionId]);
 
-  const handleDownload = () => {
+  const handleDownload = (image) => {
     // Use the 'download' attribute to trigger the download
     const link = document.createElement("a");
-    link.href = `http://localhost:8080/images/${question.question}`;
+    link.href = `http://localhost:8080/images/${image}`;
     link.download = "question_paper";
     link.click();
   };
+
   const handleLogout = () => {
-    // Implement your logout logic here
-    // For example, clear the authentication token from localStorage and redirect to the login page
-    // localStorage.clear();
     navigate("/getQp"); // Adjust the route accordingly
   };
+
   return (
     <>
-      {/* <h2 className="text-2xl font-bold">Question</h2> */}
       <div className="relative down-4 top-4 mb-8">
         <h2 className="text-left text-xl font-bold tracking-tight text-slate-900">
           Questions Available
@@ -55,11 +53,18 @@ const Paper = () => {
         <div className="w-full max-w-screen-lg top-4 md:top-4">
           {question ? (
             <div className="flex flex-col items-center">
-              <img
-                src={`http://localhost:8080/images/${question.question}`}
-                className="w-full h-auto max-h-screen rounded-lg"
-                alt="Question Paper"
-              />
+              {question.questions.map((image, index) => (
+                <div key={index}>
+                  <img
+                    src={`http://localhost:8080/images/${image}`}
+                    className="w-full h-auto max-h-screen rounded-lg"
+                    alt={`Question Paper ${index + 1}`}
+                  />
+                  <p className="text-center mt-2">
+                    Image {index + 1} of {question.questions.length}
+                  </p>
+                </div>
+              ))}
               <div className="bg-gray-100 p-4 rounded-lg mt-4 w-full max-w-screen-md">
                 <h3 className="text-xl font-bold">{question.college}</h3>
                 <p>
@@ -70,9 +75,13 @@ const Paper = () => {
                   <span className="font-semibold">Semester:</span>{" "}
                   <span className="text-blue-600">{question.semester}</span>
                 </p>
+                <p>
+                  <span className="font-semibold">Type:</span>{" "}
+                  <span className="text-blue-600">{question.type}</span>
+                </p>
               </div>
               <button
-                onClick={handleDownload}
+                onClick={() => handleDownload(image)}
                 className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
               >
                 Download

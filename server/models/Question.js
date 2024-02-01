@@ -28,9 +28,11 @@ const PaperSchema = new Schema({
     default: false, // Set default value to false if not provided
   },
 
-  question: {
-    type: String,
-  },
+  questions: [
+    {
+      type: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model("paper", PaperSchema);
