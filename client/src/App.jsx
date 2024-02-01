@@ -7,6 +7,7 @@ import UploadQP from "./pages/UploadPaper";
 import GetQP from "./pages/GetQP";
 import Login from "./pages/Login";
 import ViewPaper from "./pages/Viewpaper";
+import ViewPaper1 from "./pages/Viewpaper1";
 import Connect from "./pages/Connect";
 import VerifyPaper from "./pages/VerifyPaper";
 import Register from "./pages/Register";
@@ -40,20 +41,28 @@ const App = () => {
               </PublicRoute>
             }
           /> */}
-          <Route
+          {/* <Route
             path="/theSecretRegistrationLink@7282"
             element={
               <PublicRoute>
                 <Register />
               </PublicRoute>
             }
-          />
+          /> */}
           <Route
             path="/viewQuestion"
             element={
               <PublicRoute>
                 <ViewPaper />
               </PublicRoute>
+            }
+          />
+          <Route
+            path="/viewQuestion1"
+            element={
+              <ProtectedRoute>
+                <ViewPaper1 />
+              </ProtectedRoute>
             }
           />
           <Route

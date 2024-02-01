@@ -62,6 +62,7 @@ const GetQP = () => {
       );
 
       console.log(`Question with ID ${questionId} updated successfully`);
+      window.location.reload();
       // You may want to update the state or fetch the questions again after updating
     } catch (error) {
       console.error(`Error updating question with ID ${questionId}:`, error);
@@ -89,16 +90,18 @@ const GetQP = () => {
   };
   return (
     <>
-      <button
-        onClick={handleLogout}
-        className="absolute top-2 right-2 md:top-4 md:right-4 bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-md"
-      >
-        Logout
-      </button>
       <div className="m-2 md:m-0 mt-0 p-2 md:p-7 bg-white rounded-3xl">
-        <h2 className="text-center text-xl font-bold tracking-tight text-slate-900">
-          Questions Available
-        </h2>
+        <div className="relative">
+          <h2 className="text-left text-xl font-bold tracking-tight text-slate-900">
+            Questions Available
+          </h2>
+          <button
+            onClick={handleLogout}
+            className="absolute top-0 right-2 md:top-0 md:right-24 bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-md"
+          >
+            Logout
+          </button>
+        </div>
         <div className="container mt-5">
           <div className="flex flex-col space-y-0 mb-3 md:flex-row md:space-x-3 md:space-y-0 bg-gray-800 p-4 rounded-md">
             <div className="flex-1 flex flex-col">
@@ -167,7 +170,7 @@ const GetQP = () => {
                     <td className="border px-4 py-2">{question.semester}</td>
                     <td className="border px-4 py-2">{question.college}</td>
                     <td className="border px-4 py-2">
-                      <Link to={`/viewQuestion?question._id=${question._id}`}>
+                      <Link to={`/viewQuestion1?question._id=${question._id}`}>
                         <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-normal hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                           View
                         </button>
