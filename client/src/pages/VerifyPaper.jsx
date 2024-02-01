@@ -48,8 +48,7 @@ const GetQP = () => {
   );
 
   const handleEdit = (questionId) => {
-    // Redirect or perform any action you want when the Edit button is clicked
-    console.log(`Edit button clicked for question with ID: ${questionId}`);
+    navigate(`/updatePaper?questionId=${questionId}`);
   };
   const handleSave = async (questionId) => {
     try {

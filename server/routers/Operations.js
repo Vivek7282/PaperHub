@@ -49,4 +49,26 @@ router.put("/updateQuestion/:questionId", async (req, res) => {
   }
 });
 
+// Update a paper by ID
+router.post("/updatePaper/:questionId", async (req, res) => {
+  const { questionId } = req.params;
+
+  try {
+    const updatedPaper = await Question.findOneAndUpdate(
+      { _id: questionId },
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!updatedPaper) {
+      return res.status(404).json({ error: "Paper not found" });
+    }
+
+    res.json({ message: "Paper updated successfully", paper: updatedPaper });
+  } catch (error) {
+    console.error("Error updating paper:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports = router;

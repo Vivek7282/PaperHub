@@ -10,6 +10,7 @@ import ViewPaper from "./pages/Viewpaper";
 import ViewPaper1 from "./pages/Viewpaper1";
 import Connect from "./pages/Connect";
 import VerifyPaper from "./pages/VerifyPaper";
+import UpdatePaper from "./pages/UpdatePaper";
 import Register from "./pages/Register";
 const App = () => {
   const { loading } = useSelector((state) => state.alerts);
@@ -62,6 +63,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <ViewPaper1 />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/updatePaper"
+            element={
+              <ProtectedRoute>
+                <UpdatePaper />
               </ProtectedRoute>
             }
           />
