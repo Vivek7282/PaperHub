@@ -8,7 +8,8 @@ const cors = require("cors");
 dotenv.config();
 
 const mongoDB = require("./config/db");
-
+const authMiddleware = require("./middlewares/authMiddleware");
+const { authController } = require("./controller/userController");
 mongoDB();
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -34,6 +35,10 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use("/images", express.static("images"));
 app.use("/api/v1/user", require("./routers/AddQuestion"));
+app.use("/api/v1/user", require("./routers/Operations"));
+app.use("/api/v1/user", require("./routers/Login"));
+app.use("/api/v1/user", require("./routers/Register"));
+app.post("/api/v1/user/getUserData", authMiddleware, authController);
 app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);
 });

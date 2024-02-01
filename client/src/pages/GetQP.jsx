@@ -12,7 +12,7 @@ const GetQP = () => {
   const [filterBranch, setFilterBranch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [filterSemester, setFilterSemester] = useState("");
-  const [questionsPerPage] = useState(10);
+  const [questionsPerPage] = useState(2);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -123,7 +123,7 @@ const GetQP = () => {
                     <td className="border px-4 py-2">{question.college}</td>
                     <td className="border px-4 py-2">
                       <Link to={`/viewQuestion?question._id=${question._id}`}>
-                        <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-normal hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-normal hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                           View
                         </button>
                       </Link>

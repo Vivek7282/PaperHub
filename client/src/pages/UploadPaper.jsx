@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { colleges, semesters, branches } from "../constants";
 import axios from "axios";
 import { BASE_URL } from "../service/helper";
 export default function Example() {
+  let navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     college: "",
     semester: "",
@@ -30,15 +32,7 @@ export default function Example() {
 
         if (res.data === "Question Added") {
           alert("Paper Added successfully!");
-
-          setCredentials({
-            college: "",
-            semester: "",
-            type: "",
-            subject: "",
-            branch: "",
-            question: "",
-          });
+          navigate("/");
         }
       })
       .catch((err) => {
@@ -65,7 +59,10 @@ export default function Example() {
               Upload Question Paper
             </h2>
             <p className="mt-1 text-sm leading-6 text-white">
-              Please fill all the fields correctly.
+              Thank you for your submission! 🌟 Please ensure all fields are
+              filled accurately. Your uploaded question will be carefully
+              verified by our administrators. Your attention to detail helps us
+              maintain the quality of our content. 🙏
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

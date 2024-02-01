@@ -73,10 +73,19 @@ router.route("/addPaper").post(upload.single("question"), async (req, res) => {
 
 router.get("/questionList", async (req, res) => {
   try {
-    const questions = await Question.find();
-    res.json(questions);
+    const verifiedQuestions = await Question.find({ verified: true });
+    res.json(verifiedQuestions);
   } catch (error) {
-    console.error("Error fetching questions:", error);
+    console.error("Error fetching verified questions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+router.get("/questionList1", async (req, res) => {
+  try {
+    const verifiedQuestions = await Question.find({ verified: false });
+    res.json(verifiedQuestions);
+  } catch (error) {
+    console.error("Error fetching verified questions:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

@@ -436,7 +436,7 @@ export const semesters = [
   { id: 8, name: "Semester 8" },
 ];
 
-export const branches = [
+export const branch = [
   { id: 1, name: "Electronics and Communication Engineering" },
   { id: 2, name: "Electrical Engineering" },
   { id: 3, name: "Mechanical Engineering" },
@@ -479,3 +479,17 @@ export const branches = [
   { id: 40, name: "Petroleum Engineering" },
   { id: 41, name: "Information Technology" },
 ];
+
+export const branches = branch.slice().sort((a, b) => {
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  return 0;
+});
