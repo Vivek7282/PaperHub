@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../service/helper";
-
+import { useNavigate, Link } from "react-router-dom";
 const Paper = () => {
   const [question, setQuestion] = useState(null);
   const location = useLocation();
-
+  let navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const questionId = searchParams.get("question._id");
 
@@ -30,12 +30,29 @@ const Paper = () => {
     link.download = "question_paper";
     link.click();
   };
-
+  const handleLogout = () => {
+    // Implement your logout logic here
+    // For example, clear the authentication token from localStorage and redirect to the login page
+    // localStorage.clear();
+    navigate("/getQp"); // Adjust the route accordingly
+  };
   return (
     <>
-      <h2 className="text-2xl font-bold">Question</h2>
-      <div className="flex justify-center items-center h-full">
-        <div className="w-full max-w-screen-lg">
+      {/* <h2 className="text-2xl font-bold">Question</h2> */}
+      <div className="relative down-4 top-4 mb-8">
+        <h2 className="text-left text-xl font-bold tracking-tight text-slate-900">
+          Questions Available
+        </h2>
+        <button
+          onClick={handleLogout}
+          className="absolute top-0 right-2 md:top-0 md:right-24 bg-blue-500 hover:bg-red-700 text-white py-2 px-4 rounded-md"
+        >
+          Home
+        </button>
+      </div>
+
+      <div className="flex justify-center items-center h-full top-4 md:top-4">
+        <div className="w-full max-w-screen-lg top-4 md:top-4">
           {question ? (
             <div className="flex flex-col items-center">
               <img
