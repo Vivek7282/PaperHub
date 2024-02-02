@@ -1,6 +1,6 @@
 # Project Name
 
-**PpaerHub**
+**PaperHub**
 
 ## Tech Stack
 
@@ -35,10 +35,9 @@ The Student Helper Project is a web application designed to assist students in u
 1. Clone the repository:
 
    ```bash
-  cd student-helper
-npm install
+   cd student-helper
+   npm install
+   ```
 
 MONGO_URI= contact team
 npm start
-
-
