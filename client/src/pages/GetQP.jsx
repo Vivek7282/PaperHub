@@ -46,14 +46,25 @@ const GetQP = () => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
+  const handleLogout = () => {
+    navigate("/"); // Adjust the route accordingly
+  };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
       <div className="m-2 md:m-0 mt-0 p-2 md:p-7 bg-white rounded-3xl">
-        <h2 className="text-center text-xl font-bold tracking-tight text-slate-900">
-          Questions Available
-        </h2>
+        <div className="relative down-4 top-4 mb-8">
+          <h2 className="text-left text-xl font-bold tracking-tight text-slate-900">
+            Questions Available
+          </h2>
+          <button
+            onClick={handleLogout}
+            className="absolute top-0 right-2 md:top-0 md:right-24 bg-blue-500 hover:bg-green-700 text-white py-2 px-4 rounded-md"
+          >
+            Home
+          </button>
+        </div>
         <div className="container mt-5">
           <div className="flex flex-col space-y-0 mb-3 md:flex-row md:space-x-3 md:space-y-0 bg-gray-800 p-4 rounded-md">
             <div className="flex-1 flex flex-col">

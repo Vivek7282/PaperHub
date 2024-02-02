@@ -28,10 +28,10 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 app.use(express.json());
 app.use("/images", express.static("images"));
 app.use("/api/v1/user", require("./routers/AddQuestion"));
